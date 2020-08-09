@@ -18,7 +18,7 @@ def encodeXCategories(X, xTypes):
     return np.array( ct.fit_transform( X ) )
 
 
-class MLPredictiveModel:
+class MLParentRegression:
     def __init__( self , datasetFilepath , typeFilepath ):
 
         # import datasets

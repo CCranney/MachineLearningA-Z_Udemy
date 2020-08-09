@@ -1,9 +1,9 @@
-from MLPredictiveModel import MLPredictiveModel
+from MLParentRegression import MLParentRegression
 from sklearn.preprocessing import StandardScaler
 from sklearn.svm import SVR
 
 
-class MLSupportVectorRegression( MLPredictiveModel ):
+class MLSupportVectorRegression( MLParentRegression ):
 
     def importDatasets( self , datasetFilepath ):
         X , y = super().importDatasets( datasetFilepath )
@@ -23,8 +23,3 @@ class MLSupportVectorRegression( MLPredictiveModel ):
 
     def testModel(self):
         return self.sc_y.inverse_transform(self.model.predict(self.sc_X.transform(self.X_test)))
-
-
-slr = MLSupportVectorRegression( "Datasets/Data.csv" , "Datasets/Data_types.csv" )
-slr.predTestPrintCompare()
-print(slr.evaluatePerformance())

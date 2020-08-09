@@ -1,9 +1,9 @@
-from MLPredictiveModel import MLPredictiveModel
+from MLParentRegression import MLParentRegression
 from sklearn.preprocessing import PolynomialFeatures
 from sklearn.linear_model import LinearRegression
 
 
-class MLPolynomialRegression( MLPredictiveModel ):
+class MLPolynomialRegression( MLParentRegression ):
 
     def trainModel( self ):
         self.poly_reg = PolynomialFeatures(degree=4)
@@ -14,8 +14,3 @@ class MLPolynomialRegression( MLPredictiveModel ):
 
     def testModel(self):
         return self.model.predict(self.poly_reg.transform(self.X_test))
-
-
-plr = MLPolynomialRegression( "Datasets/Data.csv" , "Datasets/Data_types.csv" )
-plr.predTestPrintCompare()
-print(plr.evaluatePerformance())
