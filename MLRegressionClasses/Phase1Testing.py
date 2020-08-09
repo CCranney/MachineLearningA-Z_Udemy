@@ -23,4 +23,4 @@ print(template.format("Polynomial Linear Regression:" , str(prEval)))
 print(template.format("Support Vector Regression:" , str(srEval)))
 print(template.format("Decision Tree Regression:" , str(drEval)))
 print(template.format("Random Forest Regression:" , str(rrEval)))
-
+print()
