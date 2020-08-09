@@ -12,8 +12,7 @@ def importTypes(typeFilepath):
     return types[ :-1 ] , types[ -1 ]
 
 
-def encodeXCategories(X, xTypes):
-    categories = [ i for i , value in enumerate( xTypes ) if value == 'categorical' ]
+def encodeXCategories(X, categories):
     ct = ColumnTransformer( transformers = [ ( 'encoder' , OneHotEncoder() , categories ) ] , remainder = 'passthrough' )
     return np.array( ct.fit_transform( X ) )
 
@@ -28,7 +27,8 @@ class MLParentRegression:
         xTypes , yType = importTypes( typeFilepath )
 
         # encoding categorical data
-        X = encodeXCategories( X , xTypes )
+        categories = [i for i, value in enumerate(xTypes) if value == 'categorical']
+        X = encodeXCategories( X , categories )
 
         # split the dataset into training and testing
         self.X_train , self.X_test , self.y_train , self.y_test = train_test_split( X , y , test_size = 0.2 , random_state = 0 )

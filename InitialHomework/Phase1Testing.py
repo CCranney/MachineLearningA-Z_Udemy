@@ -3,12 +3,14 @@ from MLPolynomialRegression import MLPolynomialRegression
 from MLSupportVectorRegression import MLSupportVectorRegression
 from MLDecisionTreeRegression import MLDecisionTreeRegression
 from MLRandomForestRegression import MLRandomForestRegression
+d = "Data.csv"
+t = "Data_types.csv"
 
-mr = MLMultipleLinearRegression("Datasets/Data.csv", "Datasets/Data_types.csv")
-pr = MLPolynomialRegression("Datasets/Data.csv", "Datasets/Data_types.csv")
-sr = MLSupportVectorRegression("Datasets/Data.csv", "Datasets/Data_types.csv")
-dr = MLDecisionTreeRegression("Datasets/Data.csv", "Datasets/Data_types.csv")
-rr = MLRandomForestRegression("Datasets/Data.csv", "Datasets/Data_types.csv")
+mr = MLMultipleLinearRegression("Datasets/" + d, "Datasets/" + t)
+pr = MLPolynomialRegression("Datasets/" + d, "Datasets/" + t)
+sr = MLSupportVectorRegression("Datasets/" + d, "Datasets/" + t)
+dr = MLDecisionTreeRegression("Datasets/" + d, "Datasets/" + t)
+rr = MLRandomForestRegression("Datasets/" + d, "Datasets/" + t)
 mrEval = mr.evaluatePerformance()
 prEval = pr.evaluatePerformance()
 srEval = sr.evaluatePerformance()
