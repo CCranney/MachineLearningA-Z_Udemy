@@ -3,6 +3,7 @@ import pandas as pd
 import csv
 from sklearn.compose import ColumnTransformer
 from sklearn.preprocessing import OneHotEncoder
+from sklearn.preprocessing import StandardScaler
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import r2_score
 
@@ -34,7 +35,7 @@ class MLParentRegression:
         self.X_train , self.X_test , self.y_train , self.y_test = train_test_split( X , y , test_size = 0.2 , random_state = 0 )
 
         # perform Feature Scaling, if necessary
-        self.featureScaling()
+        self.featureScaling( 0 )
 
         # create model
         self.model = self.trainModel()
@@ -49,8 +50,11 @@ class MLParentRegression:
     def trainModel( self ):
         return
 
-    def featureScaling( self ):
-        pass
+    def featureScaling( self , n ):
+        self.sc_X = StandardScaler()
+        self.sc_y = StandardScaler()
+        self.X_train = self.sc_X.fit_transform(self.X_train)
+        self.y_train = self.sc_y.fit_transform(self.y_train)
 
     def testModel( self ):
         return self.model.predict(self.X_test)
