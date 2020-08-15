@@ -14,3 +14,6 @@ class MLPolynomialRegression( MLParentRegression ):
 
     def testModel(self):
         return self.model.predict(self.poly_reg.transform(self.X_test))
+
+    def featureScaling( self , n ):
+        pass

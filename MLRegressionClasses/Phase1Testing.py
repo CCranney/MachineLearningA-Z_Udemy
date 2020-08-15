@@ -3,8 +3,10 @@ from MLPolynomialRegression import MLPolynomialRegression
 from MLSupportVectorRegression import MLSupportVectorRegression
 from MLDecisionTreeRegression import MLDecisionTreeRegression
 from MLRandomForestRegression import MLRandomForestRegression
-d = "Data.csv"
-t = "Data_types.csv"
+d = "50_Startups.csv"
+#d = "Data.csv"
+t = "50_Startup_categories.csv"
+#t = "Data_types.csv"
 
 mr = MLMultipleLinearRegression("Datasets/" + d, "Datasets/" + t)
 pr = MLPolynomialRegression("Datasets/" + d, "Datasets/" + t)

@@ -8,3 +8,6 @@ class MLDecisionTreeRegression( MLParentRegression ):
         regressor = DecisionTreeRegressor(random_state=0)
         regressor.fit( self.X_train, self.y_train )
         return regressor
+
+    def featureScaling( self , n ):
+        pass
