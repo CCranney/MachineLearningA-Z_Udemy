@@ -9,5 +9,5 @@ class MLMultipleLinearRegression( MLParentRegression ):
         regressor.fit( self.X_train , self.y_train )
         return regressor
 
-    def featureScaling( self , n ):
+    def featureScaling( self ):
         pass
